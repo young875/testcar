@@ -1,0 +1,37 @@
+{% extends 'admin.base.html.twig' %}
+{% block title %}
+    Connection
+{% endblock %}
+
+
+{% block body %}
+    <body class="bg-dark">
+    <div class="container">
+        <div class="card card-login mx-auto mt-5">
+            <div class="card-header">Se connecter
+                {% if error %}
+                    <div class="alert alert-danger">
+                        identifiant ou mots de passe inccorecte
+                    </div>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <form action="{{ path('login') }}" method="post">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nom d'utilisateur</label>
+                        <input class="form-control" id="username" type="text" name="_username"  placeholder="Nom d'utilisateur" value="{{ user }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Mots de passe</label>
+                        <input class="form-control" id="password" type="password" name="_password">
+                    </div>
+                    <div class="form-group">
+                        <button class="col-12 btn btn-primary" type="submit">Se connecter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
+

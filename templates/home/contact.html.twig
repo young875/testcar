@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    {% include 'partials/header.html.twig' %}
+
+    <div id="contact-page" class="container">
+        <div class="bg">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="title text-center">CONTACTEZ-NOUS</h2>
+                    <div class="col-sm-8 contact-info" style="margin-bottom: 50px">
+                        <p>
+                            N'hésitez pas à nous contacter pour toute question ou tout renseignement dont vous pourriez avoir besoin, à propos de nos véhicules neufs
+                            ou occasion ou de l'un des nombreux services additionnels que nous proposons. Nous nous engageons à vous répondre sous vingt-quatre heures du
+                            lundi au vendredi pendant les horaires d'ouverture des concessions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="contact-form">
+                        <h2 class="title text-center">Mes coordonnées</h2>
+                        <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                            <div class="form-group col-md-4">
+                                <select name="civilite" class="form-control">
+                                    <option value="MME.">MME.</option>
+                                    <option value="M.">M.</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <input type="text" name="prenom" class="form-control" required="required" placeholder="Prénom *">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" name="nom" class="form-control" required="required" placeholder="Nom *">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="email" name="mail" class="form-control" required="required" placeholder="Email *">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <select name="objet" class="form-control">
+                                    <option value="">Être rappelé</option>
+                                    <option value="">Demander d'éssai</option>
+                                    <option value="">Demande d'informations</option>
+                                    <option value="">Réclamation</option>
+                                    <option value="">Demande de réservation de véhicule</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-12">
+                            <textarea name="message" id="message" required="required" class="form-control" rows="8"
+                                      placeholder="Pour une réponse encore plus précise, vous pouvez nous laisser un maximum d’informations ... (référence véhicule, lien vers page du site par exemple)"></textarea>
+                            </div>
+                            <div class="col-md-12"><strong style="color: red">* CHAMPS OBLIGATOIRES</strong></div>
+                            <div class="form-group col-md-12">
+                                <button class="btn btn-primary pull-right" style="width: 250px; height: 50px; font-weight: bold" type="submit">Envoyer ma demande</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="contact-info">
+                        <h2 class="title text-center">Contact Info</h2>
+                        <address>
+                            <p>E-Shopper Inc.</p>
+                            <p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
+                            <p>Newyork USA</p>
+                            <p>Mobile: +2346 17 38 93</p>
+                            <p>Fax: 1-714-252-0026</p>
+                            <p>Email: info@e-shopper.com</p>
+                        </address>
+                        <div class="social-networks">
+                            <h2 class="title text-center">Social Networking</h2>
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-youtube"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/#contact-page-->
+
+    {% include 'partials/footer.html.twig' %}
+
+{% endblock %}

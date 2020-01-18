@@ -1,0 +1,33 @@
+{% extends 'admin.base.html.twig' %}
+
+
+{% block title %} Ajouter un type de carburation{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block body %}
+
+    {% include 'admin/partials/navbar.html.twig'%}
+
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            {% include 'admin/partials/flash.html.twig'%}
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Admin</a>
+                </li>
+                <li class="breadcrumb-item active">Ajouter un type de carburation</li>
+            </ol>
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+
+            <button type="submit" class="btn btn-primary">Créer la nouvelle carburation</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+

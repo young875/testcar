@@ -1,0 +1,88 @@
+<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" >
+        <a class="nav-link" href="#">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Accueil</span>
+        </a>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#voiture" data-parent="#voiture">
+            <i class="fa fa-fw fa-car"></i>
+            <span class="nav-link-text">Liste des voitures</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="voiture">
+            <li>
+                <a href="{{ path('admin_cars') }}">Voir</a>
+                <a href="{{ path('admin_car_add') }}">ajouter</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#couleur" data-parent="#couleur">
+            <i class="fa fa-fw fa-pencil"></i>
+            <span class="nav-link-text">Liste des couleurs</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="couleur">
+            <li>
+                <a href="{{ path('admin_couleur_add') }}">ajouter</a>
+                <a href="{{ path('admin_couleurs') }}">voir</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" >
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#marque" data-parent="#marque">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Liste des marques</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="marque">
+            <li>
+                <a href="{{ path('admin_marque_add') }}">ajouter</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_marques') }}">voir</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" >
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#etat" data-parent="#etat">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">Etats des voitures</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="etat">
+            <li>
+                <a href="{{ path('admin_etat_add') }}">ajouter</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_etats') }}">voir</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" >
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-caret-up"></i>
+            <span class="nav-link-text">Liste des carburations</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+            <li>
+                <a href="{{ path('admin_carburation_add') }}">ajouter</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_carburations') }}">voir</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" >
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#boite" data-parent="#boite">
+            <i class="fa fa-fw fa-window-restore"></i>
+            <span class="nav-link-text">Liste des types de boites</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="boite">
+            <li>
+                <a href="{{ path('admin_boite_add') }}">ajouter</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_boites') }}">voir</a>
+            </li>
+        </ul>
+    </li>
+</ul>

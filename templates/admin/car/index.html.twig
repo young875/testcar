@@ -1,0 +1,58 @@
+{% extends 'admin.base.html.twig' %}
+
+
+{% block title %} Ajouter une voiture{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block body %}
+
+    {% include 'admin/partials/navbar.html.twig'%}
+
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            {% include 'admin/partials/flash.html.twig'%}
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Admin</a>
+                </li>
+                <li class="breadcrumb-item active">Liste des voitures</li>
+            </ol>
+            <a href="{{ path('admin_car_add') }}"><button class="btn btn-success">Ajouter une voiture</button></a>
+            <table class="table table-striped" style="margin-top: 5px;">
+                <thead>
+                <tr>
+                    <th scope="col">Images</th>
+                    <th scope="col">Marques</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Etats</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for car in cars %}
+                        <tr>
+                            <th scope="col"><img src="{{ vich_uploader_asset(car.images.first, 'imageFile') }}" style="height: 60px"></th>
+                            <th scope="col">{{ car.marques.marque }}</th>
+                            <th scope="col">{{ car.model }}</th>
+                            <th scope="col">{{ car.etats.etat }}</th>
+                            <th scope="col">
+                                {% if car.publie == 0  %}
+                                    <a href="{{ path('admin_car_pulie', {'id': car.id}) }}"> <button class="btn btn-warning"><i class="fa fa-upload"> </i> publier</button></a>
+                                {% else %}
+                                    <a href="{{ path('admin_car_pulie', {'id': car.id}) }}"> <button class="btn btn-warning"><i class="fa fa-crop"> </i> retirer</button></a>
+                                {% endif %}
+                            </th>
+                            <th scope="col">
+                                <a href="#"> <button class="btn btn-danger"><i class="fa fa-trash-o"> </i> Supprimer</button></a>
+                                <a href="{{ path('admin_car_update', {'id': car.id}) }}"> <button class="btn btn-warning"><i class="fa fa-edit"> </i> Modifier</button></a>
+                            </th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

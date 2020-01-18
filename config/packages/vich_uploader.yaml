@@ -1,0 +1,17 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        marque_image:
+            uri_prefix: /img/marques
+            upload_destination: '%kernel.project_dir%/public/img/marques'
+            #namer: namer.marque_image
+        car_image:
+            uri_prefix: /img/cars
+            upload_destination: '%kernel.project_dir%/public/img/cars'
+            #namer: namer.marque_image
+
+    #mappings:
+    #    products:
+    #        uri_prefix: /images/products
+    #        upload_destination: '%kernel.project_dir%/public/images/products'

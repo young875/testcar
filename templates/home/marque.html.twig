@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos véhicules {{ marque }}{% endblock %}
+
+{% block body %}
+    {% include 'partials/header.html.twig' %}
+
+    <div class="container">    <div class="category-tab"><!--category-tab-->
+            <div class="col-sm-12">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tshirt" data-toggle="tab">VÉHICULES {{ marque }} DU MOMENT</a></li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="tshirt" >
+                    {% for car in vehicules %}
+                        <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <a href="/show/fr/TOYOTA-LCA 2016-TOYOTA YARIS HYBRIDE-Blanc-3">
+                                        <img src="{{ vich_uploader_asset(car.images.first, 'imageFile') }}" alt="{{ car.slug }}" />
+                                    </a><a href="/show/fr/TOYOTA-LCA 2016-TOYOTA YARIS HYBRIDE-Blanc-3">
+                                        <h2>{{ car.prix | number_format(0, '.', ' ') }}<sup>€</sup></h2>
+                                        <p><strong>{{ car.model }}</strong></p></a>
+                                    <a href="/show/fr/TOYOTA-LCA 2016-TOYOTA YARIS HYBRIDE-Blanc-3" class="btn btn-default add-to-cart"><i class="fa fa-search-plus"></i>Plus d'infos</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <ul class="pagination">
+                <li><a href="">«</a></li>
+                <li class="active"><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">»</a></li>
+            </ul>
+        </div>
+        <!--/category-tab--></div>
+
+{% endblock %}
+
+

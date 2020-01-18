@@ -1,0 +1,172 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    {% include 'partials/header.html.twig' %}
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-offset-1 col-sm-offset-1 col-sm-10 padding-right">
+                    <div class="product-details"><!--product-details-->
+                        <div class="col-sm-6">
+                            <div class="view-product">
+                                <img src="{{ vich_uploader_asset(cars.images.first, 'imageFile') }}" alt="{{ cars.slug }}" />
+                                <h3>ZOOM</h3>
+                            </div>
+                            <div id="similar-product" class="carousel slide" data-ride="carousel">
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        {% for image in cars.images %}
+                                            <a href=""><img src="{{ vich_uploader_asset(image, 'imageFile') }}" style="width: 50px; height: 50px" alt="AUDI-TRONIC 7 QUATTRO S line-55 PLUG-IN HYBRID TFSI 367 S-Gris-1"></a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="product-information"><!--/product-information-->
+                                {% if cars.etats.etat == 'Neuf' %}
+                                    <img src="/image/neuf.png" class="newarrival" alt="" />
+                                {% endif %}
+                                <h2>{{ cars.model }} {{ cars.version }}</h2>
+                                <p>Ref.: {{ ref }} </p>
+                                <span>
+									<span>{{ cars.prix | number_format(0, ' ', ' ') }}<sup>€</sup></span>
+									<a href="#red"><button type="button" class="btn btn-fefault cart">
+										<i class="fa fa-calendar"></i>
+										Réserver maintenant
+									</button></a>
+								</span>
+                                <p><b>Status:</b> Disponible</p>
+                                <p><b>Condition:</b> VÉHICULE {{ cars.etats.etat }}</p>
+                                <p><b>ENERGIE:</b> {{ cars.carburations.carburation }} &nbsp; | &nbsp; <b>ANNEE:</b> {{ cars.annee }}</p>
+                                <p><b>CHEVAUX FISCAUX:</b> {{ cars.chevaux }} CV &nbsp; | &nbsp; <b>KM:</b> {{ cars.kilometre }}</p>
+                                <p><b>NB. PORTES:</b> {{ cars.porte }} &nbsp; | &nbsp; <b>PUISSANCE:</b> {{ cars.puissance }} CV</p>
+                                <p><b>TYPE DE BOITE:</b> {{ cars.boites.boite }} &nbsp; | &nbsp; <b>CO2:</b> {{ cars.co2 }} g/km
+                                </p>
+                            </div><!--/product-information-->
+                        </div>
+                    </div><!--/product-details-->
+
+                    <div class="category-tab shop-details-tab"><!--category-tab-->
+                        <div class="col-sm-12">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#reserver" data-toggle="tab">Réserver</a></li>
+                                <li class=""><a href="#details" data-toggle="tab">Details</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="red">
+                            <div class="tab-pane fade active in" id="reserver" >
+                                <div class="col-sm-12">
+                                    <p>Les informations que vous complétez en remplissant ce formulaire sont utilisées pour répondre à votre demande et pendant toute la relation commerciale.</p>
+                                    <p><b style="color: red">CHAMPS OBLIGATOIRES</b></p>
+
+                                    <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                                        <div class="form-group col-md-4">
+                                            <select name="civilite" class="form-control">
+                                                <option value="MME.">MME.</option>
+                                                <option value="M.">M.</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <input type="text" name="prenom" class="form-control" required="required" placeholder="Prénom *">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="text" name="nom" class="form-control" required="required" placeholder="Nom *">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="email" name="mail" class="form-control" required="required" placeholder="Email *">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="text" name="tel" class="form-control" placeholder="Téléphone ">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <select name="objet" class="form-control">
+                                                <option value="">Demande de réservation du véhicule AUDI-TRONIC 7 QUATTRO S line-55 PLUG-IN HYBRID TFSI 367 S-Gris-1</option>
+                                                <option value="">Demander d'éssai du véhicule AUDI-TRONIC 7 QUATTRO S line-55 PLUG-IN HYBRID TFSI 367 S-Gris-1</option>
+                                                <option value="">Demande d'informations du véhicule AUDI-TRONIC 7 QUATTRO S line-55 PLUG-IN HYBRID TFSI 367 S-Gris-1</option>
+                                                <option value="">Réclamation du véhicule AUDI-TRONIC 7 QUATTRO S line-55 PLUG-IN HYBRID TFSI 367 S-Gris-1</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                    <textarea name="message" style="" class="form-control" rows="8"
+                                              placeholder="Bonjour,
+
+Je souhaite réserver le véhicule suivant :"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <button class="btn btn-primary pull-right" style="width: 250px; height: 50px; font-weight: bold" type="submit">Envoyer ma demande</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="details" >
+                                <div class="col-sm-3">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="/images/home/gallery1.jpg" alt="" />
+                                                <h2>$56</h2>
+                                                <p>Easy Polo Black Edition</p>
+                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="/images/home/gallery2.jpg" alt="" />
+                                                <h2>$56</h2>
+                                                <p>Easy Polo Black Edition</p>
+                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="/images/home/gallery3.jpg" alt="" />
+                                                <h2>$56</h2>
+                                                <p>Easy Polo Black Edition</p>
+                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="/images/home/gallery4.jpg" alt="" />
+                                                <h2>$56</h2>
+                                                <p>Easy Polo Black Edition</p>
+                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div><!--/category-tab-->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'partials/footer.html.twig' %}
+
+{% endblock %}

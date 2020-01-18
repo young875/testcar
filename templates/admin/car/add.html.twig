@@ -1,0 +1,116 @@
+{% extends 'admin.base.html.twig' %}
+
+
+{% block title %} Ajouter une voiture{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{%  form_theme form _self %}
+
+{% block body %}
+
+
+    {% include 'admin/partials/navbar.html.twig'%}
+
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            {% include 'admin/partials/flash.html.twig'%}
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Admin</a>
+                </li>
+                <li class="breadcrumb-item active">Ajouter une voiture</li>
+            </ol>
+
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-6">{{ form_row(form.marques) }}</div>
+                <div class="col-md-6">{{ form_row(form.etats) }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">{{ form_row(form.couleurs) }}</div>
+                <div class="col-md-3">{{ form_row(form.boites) }}</div>
+                <div class="col-md-2">{{ form_row(form.carburations) }}</div>
+                <div class="col-md-2">{{ form_row(form.chevaux) }}</div>
+                <div class="col-md-2">{{ form_row(form.kilometre) }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">{{ form_row(form.annee) }}</div>
+                <div class="col-md-2">{{ form_row(form.co2) }}</div>
+                <div class="col-md-2">{{ form_row(form.porte) }}</div>
+                <div class="col-md-3">{{ form_row(form.puissance) }}</div>
+                <div class="col-md-3">{{ form_row(form.prix) }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">{{ form_row(form.model) }}</div>
+                <div class="col-md-6">{{ form_row(form.version) }}</div>
+            </div>
+            {{ form_row(form.images) }}
+
+
+            <button class="btn btn-success col-12">Enrégistrer la voiture</button>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block _cars_images_entry_row %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block _cars_images_entry_widget %}
+    <div class="form-group" id="block_{{ id }}">
+        <div class="row">
+            <div class="col-10">
+                <div class="row">
+                    <div class="col">{{ form_widget(form.imageFile) }}</div>
+                </div>
+            </div>
+            <div class="col-2">
+                <button class="btn btn-danger" data-action="delete" data-target="#block_{{ id }}" type="button">X</button>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block _cars_images_widget %}
+
+    <p>Ajouter des images</p>
+    {{ form_widget(form) }}
+
+    <input type="hidden" id="counter" value="0">
+
+    <div class="form-group">
+        <button type="button" id="add-image" class="btn btn-primary">Ajouter une image</button>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+
+    <script>
+        $('#add-image').click(function()  {
+            const  index = +$("#counter").val();
+            const tmpl = $('#cars_images').data('prototype').replace(/__name__/g, index);
+            $('#cars_images').append(tmpl);
+            $('#counter').val(index +1);
+
+            handleDeleteButtons();
+
+        });
+        
+        function handleDeleteButtons() {
+            $('button[data-action="delete"]').click(function () {
+                const target = this.dataset.target;
+                $(target).remove();
+            });
+        }
+        handleDeleteButtons();
+    </script>
+
+{% endblock %}

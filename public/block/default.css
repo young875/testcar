@@ -1,0 +1,55 @@
+.navbar-dark{
+    background-color: #ffffff!important;
+}
+.tel{
+    background-color: #a5bb4f!important;
+}
+.nav-link{
+    color: #a5bb4f!important;
+}
+.nav-link:hover{
+    color: #4f6dbb!important;
+    background-color: #a5bb4f;
+}
+.titre{
+    font-size: 50px;
+    text-decoration: underline;
+}
+.carte{
+    text-align: center;
+    border: solid 5px #4f6dbb;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 50%;
+}
+.service{
+    padding-top: 45px;
+    padding-bottom: 45px;
+    background-color: rgba(190,190,212, 0.5);
+}
+.scool{
+    padding-top: 45px;
+    padding-bottom: 45px;
+    background-color: #97bb4f;
+}
+.lis:hover{
+    background-color: blue;
+}
+.sh{
+    display: none;
+}
+.ad{
+    display: block;
+}
+.use{
+    color: black;
+}
+.nav-link{
+    background-color: #010066;
+    color: white!important;
+}
+.nav-link.active{
+    background-color: #ffa400!important;
+    border: none!important;
+}
