@@ -66,43 +66,33 @@
                                     <p>Les informations que vous complétez en remplissant ce formulaire sont utilisées pour répondre à votre demande et pendant toute la relation commerciale.</p>
                                     <p><b style="color: red">CHAMPS OBLIGATOIRES</b></p>
 
-                                    <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
-                                        <div class="form-group col-md-4">
-                                            <select name="civilite" class="form-control">
-                                                <option value="MME.">MME.</option>
-                                                <option value="M.">M.</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-8">
-                                            <input type="text" name="prenom" class="form-control" required="required" placeholder="Prénom *">
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <input type="text" name="nom" class="form-control" required="required" placeholder="Nom *">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <input type="email" name="mail" class="form-control" required="required" placeholder="Email *">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <input type="text" name="tel" class="form-control" placeholder="Téléphone ">
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <select name="objet" class="form-control">
-                                                <option value="">Demande de réservation du véhicule AUDI-TRONIC 7 QUATTRO S line-55 PLUG-IN HYBRID TFSI 367 S-Gris-1</option>
-                                                <option value="">Demander d'éssai du véhicule AUDI-TRONIC 7 QUATTRO S line-55 PLUG-IN HYBRID TFSI 367 S-Gris-1</option>
-                                                <option value="">Demande d'informations du véhicule AUDI-TRONIC 7 QUATTRO S line-55 PLUG-IN HYBRID TFSI 367 S-Gris-1</option>
-                                                <option value="">Réclamation du véhicule AUDI-TRONIC 7 QUATTRO S line-55 PLUG-IN HYBRID TFSI 367 S-Gris-1</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                    <textarea name="message" style="" class="form-control" rows="8"
-                                              placeholder="Bonjour,
+{{ form_start(form) }}
+                                    <div class="form-group col-md-4">
+                                        {{ form_widget(form.titre) }}
+                                    </div>
+                                    <div class="form-group col-md-8">
+                                        {{ form_widget(form.prenom) }}
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        {{ form_widget(form.nom) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        {{ form_widget(form.mail) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        {{ form_widget(form.telephone) }}
+                                    </div>
 
-Je souhaite réserver le véhicule suivant :"></textarea>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <button class="btn btn-primary pull-right" style="width: 250px; height: 50px; font-weight: bold" type="submit">Envoyer ma demande</button>
-                                        </div>
-                                    </form>
+                                    <div class="form-group col-md-12">
+                                        {{ form_widget(form.demande) }}
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        {{ form_widget(form.message) }}
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <button class="btn btn-primary pull-right" style="width: 250px; height: 50px; font-weight: bold" type="submit">Envoyer ma demande</button>
+                                    </div>
+{{ form_end(form) }}
                                 </div>
                             </div>
                             <div class="tab-pane " id="details" >

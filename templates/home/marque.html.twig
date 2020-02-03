@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos véhicules {{ marque }}{% endblock %}
+{% block title %}Nos véhicules {{ marque.marque }}{% endblock %}
 
 {% block body %}
     {% include 'partials/header.html.twig' %}
@@ -8,7 +8,7 @@
     <div class="container">    <div class="category-tab"><!--category-tab-->
             <div class="col-sm-12">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tshirt" data-toggle="tab">VÉHICULES {{ marque }} DU MOMENT</a></li>
+                    <li class="active"><a href="#tshirt" data-toggle="tab">VÉHICULES {{ marque.marque }} DU MOMENT</a></li>
                 </ul>
             </div>
             <div class="tab-content">
@@ -18,12 +18,12 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <a href="/show/fr/TOYOTA-LCA 2016-TOYOTA YARIS HYBRIDE-Blanc-3">
+                                    <a href="{{ path('page_car', {slug:car.slug}) }}">
                                         <img src="{{ vich_uploader_asset(car.images.first, 'imageFile') }}" alt="{{ car.slug }}" />
-                                    </a><a href="/show/fr/TOYOTA-LCA 2016-TOYOTA YARIS HYBRIDE-Blanc-3">
+                                    </a><a href="{{ path('page_car', {slug:car.slug}) }}">
                                         <h2>{{ car.prix | number_format(0, '.', ' ') }}<sup>€</sup></h2>
                                         <p><strong>{{ car.model }}</strong></p></a>
-                                    <a href="/show/fr/TOYOTA-LCA 2016-TOYOTA YARIS HYBRIDE-Blanc-3" class="btn btn-default add-to-cart"><i class="fa fa-search-plus"></i>Plus d'infos</a>
+                                    <a href="{{ path('page_car', {slug:car.slug}) }}" class="btn btn-default add-to-cart"><i class="fa fa-search-plus"></i>Plus d'infos</a>
                                 </div>
 
                             </div>
